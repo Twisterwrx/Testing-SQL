@@ -1,7 +1,6 @@
 package Controlers;
 
 
-import org.hibernate.mapping.List;
 import repository.UserRepository;
 import Classes.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-//@Setter
 @Controller
 @RequestMapping(path="/demo")
 public class MainController {
@@ -20,18 +18,14 @@ public class MainController {
     private UserRepository userRepository;
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String name
-            , @RequestParam String email) {
+    public @ResponseBody User addNewUser (User user) {
 
-       // User n = new User();
-       // n.setName(name);
-       // n.setEmail(email);
-      // userRepository.save(n);
-        // return  userRepository.save(n);
+      return  userRepository.save(user);
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody List<User> getAllUsers() {
+    public @ResponseBody
+    Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
 }
