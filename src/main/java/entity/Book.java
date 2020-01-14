@@ -15,6 +15,7 @@ import javax.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+
     private Integer id;
     private String name;
     private String author;

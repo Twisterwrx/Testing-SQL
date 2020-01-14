@@ -1,4 +1,4 @@
-package application;
+package repository;
 
 
 import org.springframework.boot.SpringApplication;
