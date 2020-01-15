@@ -23,11 +23,4 @@ public class Book {
     private Object book_name;
     private Object author_name;
 
-    public Object getBook_name() {
-        return book_name;
-    }
-
-    public Object getAuthor_name() {
-        return author_name;
-    }
 }

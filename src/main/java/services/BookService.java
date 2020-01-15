@@ -2,15 +2,16 @@ package services;
 
 import entity.Book;
 import exceptions.BookNotFoundException;
-import interfaces.PutBook;
 import org.springframework.stereotype.Service;
+import services.impl.BookInterface;
 
 @Service
 
-public class PutService implements PutBook {
+public class BookService implements BookInterface {
 
-    Book book = bookRepository.findById(Math.toIntExact(bookId)).orElseThrow(() -> new BookNotFoundException(bookId));
+    public void updateNote (Book book) {
 
+        book = bookRepository.findById(Math.toIntExact(bookId)).orElseThrow(() -> new BookNotFoundException(bookId));
         book.setBook_name(bookDetails.getBook_name());
         book.setAuthor_name(bookDetails.getAuthor_name());
         book.setCost(bookDetails.getCost());
@@ -18,9 +19,5 @@ public class PutService implements PutBook {
     Book updatedBook = bookRepository.save(book);
     return;
 
-    @Override
-    public void updateNote(Object bookId, Object bookDetails, Object book_name, Object author_name, Object cost, Object Book) {
-
     }
-
 }
