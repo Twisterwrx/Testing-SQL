@@ -7,7 +7,12 @@ import org.springframework.stereotype.Service;
 
 public interface BookInterface {
 
+    public void addNewBook (Book book);
+
+    public void getAllBooks(Book book);
+
     public void updateNote (Book book);
 
-    }
+    public void deleteBook (Book book);
+}
 
