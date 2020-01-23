@@ -20,7 +20,5 @@ public class Book {
     private String name;
     private String author;
     private Double cost;
-    private Object book_name;
-    private Object author_name;
 
 }

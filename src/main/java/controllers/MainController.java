@@ -4,6 +4,7 @@ package controllers;
 import entity.Book;
 import exceptions.BookNotFoundException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +13,21 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/demo")
+@Service
 
 public class MainController {
 
     @Autowired
-    private BookRepository bookRepository;
+
 
     @PostMapping
     public Book addNewBook(Book book) {
-        return bookRepository.save(book);
+        return addNewBook(book);
     }
 
     @GetMapping
     Iterable<Book> getAllBooks() {
-        return bookRepository.findAll();
+        return getAllBooks();
     }
 
     @PutMapping
@@ -33,8 +35,7 @@ public class MainController {
     }
 
     @DeleteMapping
-    public ResponseEntity deleteBook(@PathVariable(value = "bookId") Long bookId) {
-        bookRepository.delete(bookId);
-        return ResponseEntity.ok().build();
+    public ResponseEntity deleteBook(@PathVariable(value = "Id") Long bookId) {
+         return deleteBook();
     }
 }

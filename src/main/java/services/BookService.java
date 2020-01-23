@@ -6,49 +6,52 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import repository.BookRepository;
 import services.impl.BookInterface;
 
 @Service
 
-
 public class BookService implements BookInterface {
     @Autowired
+    private BookRepository bookRepository;
 
     public void addNewBook(Book book) {
 
-        book.setBook_name(bookDetails.getBook_name());
-        book.setAuthor_name(bookDetails.getAuthor_name());
-        book.setCost(bookDetails.getCost());
+        book.setName(book.getName());
+        book.setAuthor(book.getAuthor());
+        book.setCost(book.getCost());
 
         return bookRepository.save(book);
     }
 
-    public void getAllBooks(Book book) {
+    public Iterable<Book> getAllBooks(Book book) {
 
-        book = bookRepository.findById(Math.toIntExact(bookId)).orElseThrow(() -> new BookNotFoundException(bookId));
-        book = bookRepository.findByBook_name(Math.toIntExact(book_name)).orElseThrow(() -> new BookNotFoundException(book_name));
-        book = bookRepository.findByAuthor_name(Math.toIntExact(author_name)).orElseThrow(() -> new BookNotFoundException(author_name));
-        book = bookRepository.findByCost(Math.toIntExact(cost)).orElseThrow(() -> new BookNotFoundException(cost));
+        book = bookRepository.findById(Math.toIntExact(book.getId())).orElseThrow(() -> new BookNotFoundException(book.getId()));
+        book = bookRepository.findByName(book.getName()).orElseThrow(() -> new BookNotFoundException(book.getName()));
+        book = bookRepository.findByAuthor(book.getAuthor()).orElseThrow(() -> new BookNotFoundException(book.getAuthor()));
+        book = bookRepository.findByCost(Math.toIntExact(book.getCost()).orElseThrow(() -> new BookNotFoundException(book.getCost())));
 
         return bookRepository.findAll();
     }
 
     public void updateNote(Book book) {
 
-        book = bookRepository.findById(Math.toIntExact(bookId)).orElseThrow(() -> new BookNotFoundException(bookId));
-        book.setBook_name(bookDetails.getBook_name());
-        book.setAuthor_name(bookDetails.getAuthor_name());
-        book.setCost(bookDetails.getCost());
+        book = bookRepository.findById(Math.toIntExact(book.getId())).orElseThrow(() -> new BookNotFoundException(book.getId()));
+        book.setName(book.getName());
+        book.setAuthor(book.getAuthor());
+        book.setCost(book.getCost());
 
-        Book updatedBook = bookRepository.save(book);
+        Book updatedNote = bookRepository.save(book);
 
-        return bookRepository.save(book);
+        return bookRepository.save(Book book);
     }
 
     public void deleteBook(Book book) {
-        public ResponseEntity deleteBook (@PathVariable(value = "bookId") Long bookId){
-            bookRepository.delete(bookId);
+        public ResponseEntity deleteBook (@PathVariable(value = "bookId") Long book.getId(){
+            bookRepository.delete(book.getId());
             return ResponseEntity.ok().build();
         }
     }
+
+
 }
