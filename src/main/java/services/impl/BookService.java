@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public interface BookInterface {
+public interface BookService {
 
     public void addNewBook (Book book);
 

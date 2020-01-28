@@ -7,11 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import repository.BookRepository;
-import services.impl.BookInterface;
+import services.impl.BookService;
 
 @Service
 
-public class BookService implements BookInterface {
+public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
