@@ -47,9 +47,9 @@ public class BookService implements BookInterface {
     }
 
     public void deleteBook(Book book) {
-        public ResponseEntity deleteBook (@PathVariable(value = "bookId") Long book.getId(){
+        public ResponseEntity deleteBook (@PathVariable(value = "Id") Long book.getId(){
             bookRepository.delete(book.getId());
-            return ResponseEntity.ok().build();
+            return bookRepository.delete(book id);
         }
     }
 

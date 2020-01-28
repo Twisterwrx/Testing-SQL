@@ -12,6 +12,5 @@ public interface BookInterface {
     public Iterable<Book> getAllBooks(Book book);
 
     public void updateNote (Book book);
-        //
 }
 
