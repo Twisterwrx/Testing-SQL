@@ -14,5 +14,6 @@ public interface BookInterface {
     public void updateNote (Book book);
 
     public void deleteBook (Book book);
+    //
 }
 
