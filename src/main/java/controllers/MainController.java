@@ -10,6 +10,7 @@ import repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
+import javax.xml.ws.ServiceMode;
 
 @RestController
 @RequestMapping(path = "/demo")
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 
 public class MainController {
 
-    @Autowired
+    @Service
 
 
     @PostMapping
@@ -31,11 +32,11 @@ public class MainController {
     }
 
     @PutMapping
-    public void updateNote(@PathVariable Long bookId,@Valid @RequestBody Book bookDetails) throws BookNotFoundException {
+    public void updateNote(@PathVariable Long Id,@Valid @RequestBody Book book) throws BookNotFoundException {
     }
 
     @DeleteMapping
-    public ResponseEntity deleteBook(@PathVariable(value = "Id") Long bookId) {
+    public ResponseEntity deleteBook(@PathVariable(value = "Id") Long Id) {
          return deleteBook();
     }
 }

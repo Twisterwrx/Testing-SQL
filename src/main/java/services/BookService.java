@@ -12,6 +12,7 @@ import services.impl.BookInterface;
 @Service
 
 public class BookService implements BookInterface {
+
     @Autowired
     private BookRepository bookRepository;
 
@@ -29,7 +30,7 @@ public class BookService implements BookInterface {
         book = bookRepository.findById(Math.toIntExact(book.getId())).orElseThrow(() -> new BookNotFoundException(book.getId()));
         book = bookRepository.findByName(book.getName()).orElseThrow(() -> new BookNotFoundException(book.getName()));
         book = bookRepository.findByAuthor(book.getAuthor()).orElseThrow(() -> new BookNotFoundException(book.getAuthor()));
-        book = bookRepository.findByCost(Math.toIntExact(book.getCost()).orElseThrow(() -> new BookNotFoundException(book.getCost())));
+        book = bookRepository.findByCost(book.getCost()).orElseThrow(() -> new BookNotFoundException(book.getCost())));
 
         return bookRepository.findAll();
     }
@@ -47,7 +48,7 @@ public class BookService implements BookInterface {
     }
 
     public void deleteBook(Book book) {
-        public ResponseEntity deleteBook (@PathVariable(value = "bookId") Long book.getId(){
+        public ResponseEntity deleteBook(@PathVariable(value = "Id") Long book.getId(){
             bookRepository.delete(book.getId());
             return ResponseEntity.ok().build();
         }
