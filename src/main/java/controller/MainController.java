@@ -6,7 +6,7 @@ import exception.BookNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import services.BookServiceImpl;
 
 import javax.validation.Valid;
 
@@ -32,12 +32,12 @@ public class MainController {
     @PutMapping
     public Book updateNote(@PathVariable Long id, @Valid @RequestBody Book) throws BookNotFoundException {
         //this.addNewBook(Book);
-        return service.impl.BookService(id);
+        return service.BookServiceImpl();
     }
 
     @DeleteMapping
     public ResponseEntity deleteBook(@PathVariable(value = "Id") Long book Id) {
         //getAllBooks().deleteBook(id);
-        return service.impl.BookService(id);
+        return service.BookServiceImpl(id);
     }
 }
