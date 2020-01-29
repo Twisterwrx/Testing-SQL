@@ -1,8 +1,8 @@
-package controllers;
+package controller;
 
 
 import entity.Book;
-import exceptions.BookNotFoundException;
+import exception.BookNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +13,10 @@ import javax.validation.Valid;
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
-@RequestMapping(path = "/demo")
 @Service
+// service.method()
 
 public class MainController {
-
-    @Autowired
 
     @PostMapping
     public Book addNewBook(Book book) {
@@ -27,24 +25,18 @@ public class MainController {
 
     @GetMapping
     public Iterable<Book> getAllBooks(@RequestParam(name = "id", required = false)) {
-        return getAllBooks();
+        return service.getAllBooks(id);
+        }
 
-        public Iterable<Book> getAllBooks (@RequestParam(name = "id", required = true)) {
-        return getAllBooks(id);
-    }
-    }
-
-    @Autowired
     @PutMapping
     public Book updateNote(@PathVariable Long id, @Valid @RequestBody Book) throws BookNotFoundException {
         this.addNewBook(Book);
-        return updateNote(Book);
+        return service.updateNote();
     }
 
-    @Autowired
     @DeleteMapping
     public ResponseEntity deleteBook(@PathVariable(value = "Id") Long bookId) {
         getAllBooks().deleteBook(id);
-        return deleteBook(id);
+        return service.deleteBook(id);
     }
 }
