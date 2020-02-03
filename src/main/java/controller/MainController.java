@@ -6,9 +6,11 @@ import exception.BookNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import service.impl.BookService;
 import services.BookServiceImpl;
 
 import javax.validation.Valid;
+import javax.xml.ws.Service;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -20,24 +22,22 @@ public class MainController {
     @PostMapping
     public Book addNewBook(Book book) {
 
-        return service.BookServiceImpl(book);
+        return BookService.addNewBook (book);
     }
 
     @GetMapping
     public Iterable<Book> getAllBooks(@RequestParam(name = "id", required = false)) {
-        //return "id: " + book id + name;
-        return service.BookServiceImpl(id);
+      return BookService.getAllBooks();
         }
 
     @PutMapping
     public Book updateNote(@PathVariable Long id, @Valid @RequestBody Book) throws BookNotFoundException {
-        //this.addNewBook(Book);
-        return service.BookServiceImpl();
+        return BookService.updateNote();
     }
 
     @DeleteMapping
     public ResponseEntity deleteBook(@PathVariable(value = "Id") Long book Id) {
-        //getAllBooks().deleteBook(id);
-        return service.BookServiceImpl(id);
+
+        return BookService.deleteBook (id);
     }
 }
