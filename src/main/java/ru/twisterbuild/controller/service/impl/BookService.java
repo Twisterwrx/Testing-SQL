@@ -1,21 +1,21 @@
 package ru.twisterbuild.controller.service.impl;
 
+import org.springframework.http.ResponseEntity;
 import ru.twisterbuild.controller.entity.Book;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 
 public interface BookService {
 
 
-    public Book addNewBook ();
+    Book addNewBook(Book book);
 
-    public List<Book> getAllBooks();
+    Iterable<Book> getAllBooks(Book book);
 
-    public void updateNote ();
+    Book updateNote(Book book);
 
-    public void deleteBook ();
+    ResponseEntity deleteBook(Book book);
+
 }
 
