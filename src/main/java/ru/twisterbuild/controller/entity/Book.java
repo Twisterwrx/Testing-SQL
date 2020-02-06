@@ -1,4 +1,4 @@
-package entity;
+package ru.twisterbuild.controller.entity;
 
 import lombok.Getter;
 import lombok.Setter;

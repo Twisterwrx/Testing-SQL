@@ -1,16 +1,15 @@
-package controller;
+package ru.twisterbuild.controller.controller;
 
 
-import entity.Book;
-import exception.BookNotFoundException;
+import ru.twisterbuild.controller.entity.Book;
+import ru.twisterbuild.controller.exception.BookNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import service.impl.BookService;
+import ru.twisterbuild.controller.service.impl.BookService;
 import services.BookServiceImpl;
 
 import javax.validation.Valid;
-import javax.xml.ws.Service;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -36,7 +35,7 @@ public class MainController {
     }
 
     @DeleteMapping
-    public ResponseEntity deleteBook(@PathVariable(value = "Id") Long book Id) {
+    public ResponseEntity deleteBook(@PathVariable(value = "Id") Long Book Id) {
 
         return BookService.deleteBook (id);
     }

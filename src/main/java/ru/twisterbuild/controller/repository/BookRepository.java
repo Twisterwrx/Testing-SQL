@@ -1,6 +1,6 @@
-package repository;
+package ru.twisterbuild.controller.repository;
 
-import entity.Book;
+import ru.twisterbuild.controller.entity.Book;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BookRepository extends CrudRepository <Book, Integer> {

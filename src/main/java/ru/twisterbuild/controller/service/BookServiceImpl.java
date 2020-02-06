@@ -1,14 +1,13 @@
-package service;
+package ru.twisterbuild.controller.service;
 
-import entity.Book;
-import exception.BookNotFoundException;
-import org.hibernate.boot.model.relational.Namespace;
+import ru.twisterbuild.controller.entity.Book;
+import ru.twisterbuild.controller.exception.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import repository.BookRepository;
-import service.impl.BookService;
+import ru.twisterbuild.controller.repository.BookRepository;
+import ru.twisterbuild.controller.service.impl.BookService;
 
 @Service
 
@@ -30,9 +29,7 @@ public class BookServiceImpl implements BookService {
     public Iterable<Book> getAllBooks(Book book) {
 
         book = bookRepository.findById(Math.toIntExact(book.getId())).orElseThrow(() -> new BookNotFoundException(getAllBooks()));
-        /*book = bookRepository.findByName(book.getName()).orElseThrow(() -> new BookNotFoundException(book.getName()));
-        book = bookRepository.findByAuthor(book.getAuthor()).orElseThrow(() -> new BookNotFoundException(book.getAuthor()));
-        book = bookRepository.findByCost(Math.toIntExact(book.getCost()).orElseThrow(() -> new BookNotFoundException(book.getCost())));*/
+
 
         //ЭТОТ
             book.setName(Name name) () {
