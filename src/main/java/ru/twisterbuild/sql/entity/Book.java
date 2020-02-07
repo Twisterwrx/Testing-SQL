@@ -1,4 +1,4 @@
-package ru.twisterbuild.controller.entity;
+package ru.twisterbuild.sql.entity;
 
 import lombok.Getter;
 import lombok.Setter;

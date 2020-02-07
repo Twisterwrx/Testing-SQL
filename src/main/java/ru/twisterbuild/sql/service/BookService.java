@@ -1,7 +1,7 @@
-package ru.twisterbuild.controller.service.impl;
+package ru.twisterbuild.sql.service;
 
 import org.springframework.http.ResponseEntity;
-import ru.twisterbuild.controller.entity.Book;
+import ru.twisterbuild.sql.entity.Book;
 import org.springframework.stereotype.Service;
 
 @Service

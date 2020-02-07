@@ -2081,6 +2081,21 @@
                <artifactId>hibernate-core</artifactId>
                <version>5.3.10.Final</version>
            </dependency>
+           <dependency>
+               <groupId>com.openhtmltopdf</groupId>
+               <artifactId>openhtmltopdf-pdfbox</artifactId>
+               <version>0.0.1-RC9</version>
+           </dependency>
+           <dependency>
+               <groupId>com.openhtmltopdf</groupId>
+               <artifactId>openhtmltopdf-pdfbox</artifactId>
+               <version>0.0.1-RC9</version>
+           </dependency>
+           <dependency>
+               <groupId>com.openhtmltopdf</groupId>
+               <artifactId>openhtmltopdf-pdfbox</artifactId>
+               <version>0.0.1-RC9</version>
+           </dependency>
        </dependencies>
 
     <build>
