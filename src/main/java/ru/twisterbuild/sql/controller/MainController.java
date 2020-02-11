@@ -3,7 +3,6 @@ package ru.twisterbuild.sql.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.twisterbuild.sql.entity.Book;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import ru.twisterbuild.sql.service.BookService;
@@ -14,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 @Service
 
-public class MainController<id> {
+public class MainController {
     @Autowired
     BookService bookService;
 
@@ -34,7 +33,7 @@ public class MainController<id> {
     }
 
     @DeleteMapping
-    public ResponseEntity deleteBook(@PathVariable long Id) {
+    public void deleteBook(@PathVariable long id) {
         return bookService.deleteBook(id);
     }
 }

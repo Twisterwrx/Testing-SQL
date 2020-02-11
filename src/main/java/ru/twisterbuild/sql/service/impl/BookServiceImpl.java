@@ -18,7 +18,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Iterable<Book> getAllBooks(Book book) {
+    public Iterable<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
@@ -28,8 +28,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void deleteBook(Book book) {
-        return bookRepository.delete(book id);
+    public void deleteBook(Book id) { return bookRepository.delete(Book id);
     }
 }
 

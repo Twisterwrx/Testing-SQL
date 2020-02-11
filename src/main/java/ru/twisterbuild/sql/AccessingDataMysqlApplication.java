@@ -1,3 +1,5 @@
+package ru.twisterbuild.sql;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
