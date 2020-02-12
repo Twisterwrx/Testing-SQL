@@ -2047,11 +2047,6 @@
                <version>5.0.4.Final</version>
            </dependency>
            <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-core</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
                <groupId>commons-httpclient</groupId>
                <artifactId>commons-httpclient</artifactId>
                <version>3.1</version>
@@ -2081,37 +2076,7 @@
                <artifactId>hibernate-core</artifactId>
                <version>5.3.10.Final</version>
            </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-           <dependency>
-               <groupId>com.openhtmltopdf</groupId>
-               <artifactId>openhtmltopdf-pdfbox</artifactId>
-               <version>0.0.1-RC9</version>
-           </dependency>
-       </dependencies>
+           </dependencies>
 
     <build>
         <plugins>

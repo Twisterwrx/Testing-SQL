@@ -2,13 +2,11 @@ package ru.twisterbuild.sql.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import ru.twisterbuild.sql.entity.Book;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import ru.twisterbuild.sql.service.BookService;
-
-
-import javax.validation.Valid;
 
 @RestController
 @Service
@@ -23,17 +21,17 @@ public class MainController {
     }
 
     @GetMapping
-    public Iterable<Book> getAllBooks(@RequestParam(name = "id", required = false)) {
-        return bookService.getAllBooks();
+    public Iterable<Book> getAllBooks(){ return bookService.getAllBooks();
     }
 
     @PutMapping
-    public Book updateNote(@PathVariable Book id, @Valid @RequestBody Book) {
-        return bookService.updateNote(id);
+    public Book updateNote(@RequestBody Book book) {
+        return bookService.updateNote(book);
     }
 
     @DeleteMapping
-    public void deleteBook(@PathVariable long id) {
-        return bookService.deleteBook(id);
+    public ResponseEntity.BodyBuilder deleteBook(@RequestParam Integer id) {
+        bookService.deleteBook(id);
+        return ResponseEntity.ok();
     }
 }

@@ -3,8 +3,6 @@ package ru.twisterbuild.sql.service;
 import ru.twisterbuild.sql.entity.Book;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Id;
-
 @Service
 
 public interface BookService {
@@ -16,7 +14,7 @@ public interface BookService {
 
     Book updateNote(Book book);
 
-    void deleteBook(Book id);
+    void deleteBook(Integer id);
 
 }
 
