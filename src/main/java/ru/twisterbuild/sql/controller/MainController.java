@@ -16,17 +16,26 @@ public class MainController {
     BookService bookService;
 
     @PostMapping
-    public Book addNewBook(Book book) {
-        return bookService.addNewBook(book);
+    public ResponseEntity <Book> addNewBook(@RequestBody Book book) {
+        bookService.addNewBook(book);
+        return new ResponseEntity<>(Book, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public Iterable<Book> getAllBooks(){ return bookService.getAllBooks();
+    public ResponseEntity.BodyBuilder getAllBooks(){
+        bookService.getAllBooks();
+        return ResponseEntity.ok();
+
+        /*2ой вариант
+        public ResponseEntity<Iterable<Book>> getAllBooks() {
+            bookService.getAllBooks();
+            return new ResponseEntity.ok();*/
     }
 
     @PutMapping
-    public Book updateNote(@RequestBody Book book) {
-        return bookService.updateNote(book);
+    public ResponseEntity.BodyBuilder updateNote(@RequestBody Book book) {
+        bookService.updateNote(book);
+        return ResponseEntity.accepted();
     }
 
     @DeleteMapping
