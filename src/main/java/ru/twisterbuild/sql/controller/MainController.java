@@ -2,6 +2,7 @@ package ru.twisterbuild.sql.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import ru.twisterbuild.sql.entity.Book;
 import org.springframework.stereotype.Service;
@@ -9,38 +10,30 @@ import org.springframework.web.bind.annotation.*;
 import ru.twisterbuild.sql.service.BookService;
 
 @RestController
-@Service
+@RequestMapping ("books")
 
 public class MainController {
     @Autowired
     BookService bookService;
 
     @PostMapping
-    public ResponseEntity <Book> addNewBook(@RequestBody Book book) {
-        bookService.addNewBook(book);
-        return new ResponseEntity<>(Book, HttpStatus.CREATED);
+    public ResponseEntity addNewBook(@RequestBody Book book) {
+        return new ResponseEntity (bookService.addNewBook(book), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity.BodyBuilder getAllBooks(){
-        bookService.getAllBooks();
-        return ResponseEntity.ok();
-
-        /*2ой вариант
-        public ResponseEntity<Iterable<Book>> getAllBooks() {
-            bookService.getAllBooks();
-            return new ResponseEntity.ok();*/
+    public ResponseEntity getAllBooks(){
+        return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity.BodyBuilder updateNote(@RequestBody Book book) {
-        bookService.updateNote(book);
-        return ResponseEntity.accepted();
+    public ResponseEntity updateNote(@RequestBody Book book) {
+        return new ResponseEntity (bookService.updateNote(book), HttpStatus.OK);
     }
 
     @DeleteMapping
-    public ResponseEntity.BodyBuilder deleteBook(@RequestParam Integer id) {
+    public ResponseEntity deleteBook(@RequestParam Integer id) {
         bookService.deleteBook(id);
-        return ResponseEntity.ok();
+        return new ResponseEntity( HttpStatus.NO_CONTENT);
     }
 }
