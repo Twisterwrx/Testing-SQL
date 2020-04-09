@@ -7,8 +7,8 @@ import ru.twisterbuild.sql.repository.BookRepository;
 import ru.twisterbuild.sql.service.BookService;
 
 @Service
-
 public class BookServiceImpl implements BookService {
+
     @Autowired
     private BookRepository bookRepository;
 

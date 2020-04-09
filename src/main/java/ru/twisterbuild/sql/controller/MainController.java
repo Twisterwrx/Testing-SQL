@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.twisterbuild.sql.service.BookService;
 
 @RestController
-@RequestMapping ("books")
+@RequestMapping ("/books")
 
 public class MainController {
     @Autowired

@@ -4,9 +4,7 @@ import ru.twisterbuild.sql.entity.Book;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public interface BookService {
-
 
     Book addNewBook(Book book);
 
