@@ -20,12 +20,18 @@ public class Book {
 
     private Integer id;
 
+    @Email(regexp=".@.\\..*", message = "Email should be valid")
+    private String email;
+
+    @NotNull
     @Column (name = "name", length=50,nullable = false)
     private String name;
 
+    @NotNull
     @Column (name = "author", length = 30, nullable = false)
     private String author;
 
+    @NotNull
     @Column (name = "cost", scale = 2, nullable = false)
     private Double cost;
 
